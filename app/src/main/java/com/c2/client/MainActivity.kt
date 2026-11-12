@@ -1,4 +1,4 @@
-# ═══ MainActivity.kt ═══
+
 cat > app/src/main/java/com/c2/client/MainActivity.kt << 'EOF'
 package com.c2.client
 
