@@ -1,4 +1,3 @@
-
 cat > app/src/main/java/com/c2/client/NetworkReceiver.kt << 'EOF'
 package com.c2.client
 
