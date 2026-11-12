@@ -1,4 +1,4 @@
-# ═══ app/build.gradle ═══
+
 cat > app/build.gradle << 'EOF'
 plugins {
     id 'com.android.application'
