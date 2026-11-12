@@ -1,4 +1,4 @@
-# ═══ settings.gradle ═══
+
 cat > settings.gradle << 'EOF'
 pluginManagement {
     repositories { google(); mavenCentral(); gradlePluginPortal() }
