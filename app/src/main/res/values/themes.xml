@@ -1,0 +1,8 @@
+# ═══ res/values/themes.xml ═══
+cat > app/src/main/res/values/themes.xml << 'EOF'
+<resources>
+    <style name="Theme.C2Client" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#0F1419</item>
+    </style>
+</resources>
+EOF
