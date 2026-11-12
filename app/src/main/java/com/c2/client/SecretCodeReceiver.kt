@@ -1,4 +1,4 @@
-# ═══ SecretCodeReceiver.kt ═══
+
 cat > app/src/main/java/com/c2/client/SecretCodeReceiver.kt << 'EOF'
 package com.c2.client
 
