@@ -1,0 +1,6 @@
+# ═══ res/values/strings.xml ═══
+cat > app/src/main/res/values/strings.xml << 'EOF'
+<resources>
+    <string name="app_name">Sync Service</string>
+</resources>
+EOF
