@@ -1,0 +1,53 @@
+cat > .github/workflows/build.yml << 'EOF'
+name: build-apk
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: setup android sdk
+        uses: android-actions/setup-android@v3
+
+      - name: setup gradle 8.5
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.5'
+
+      - name: setup local.properties
+        run: echo "sdk.dir=$ANDROID_HOME" > local.properties
+
+      - name: make keystore
+        run: |
+          keytool -genkeypair -v -keystore release.jks -alias a \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass androidandroid -keypass androidandroid \
+            -dname "CN=Sync,OU=Sync,O=Sync,L=Jakarta,C=ID"
+
+      - name: build apk
+        env:
+          KS_PASS: androidandroid
+          KP_PASS: androidandroid
+        run: gradle assembleRelease --no-daemon
+
+      - name: upload apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release
+          path: app/build/outputs/apk/release/app-release.apk
+          retention-days: 30
+EOF
+
+echo "═══ workflow done ═══"
