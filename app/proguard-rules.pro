@@ -1,4 +1,3 @@
-
 cat > app/proguard-rules.pro << 'EOF'
 -keep class io.socket.** { *; }
 -keep class okhttp3.** { *; }
